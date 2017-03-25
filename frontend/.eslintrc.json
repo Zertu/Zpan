@@ -13,17 +13,21 @@
         }
     },
     "rules": {
-        "strict":1,
+        "strict": 1,
         "no-undef": 1, // http://eslint.org/docs/rules/no-undef
-        "no-unused-vars":"warn",
+        "no-unused-vars": "warn",
         "quotes": [
             "error",
             "single"
         ],
-        "no-console":"warn",
+        "no-console": "warn",
         "semi": [
             "error",
             "never"
         ]
-    }
+    },
+    "plugins": [
+        "react"
+    ]
+
 }
