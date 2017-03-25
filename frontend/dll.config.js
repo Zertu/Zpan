@@ -1,16 +1,17 @@
-const webpack = require('webpack')
+const webpack = require('webpack'),
+path = require('path')
 
 const vendors = [
     'react',
     'react-dom',
-    'react-css-modules',
     'mobx-react',
-    'react-router-dom'
+    'react-router-dom',
+    'rxjs-es'
 ]
 
 module.exports = {
     output: {
-        path: 'dist',
+        path: __dirname+'dist',
         filename: '[name].js',
         library: '[name]',
     },

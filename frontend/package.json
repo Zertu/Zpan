@@ -1,17 +1,17 @@
 {
-  "name": "reactdemo",
+  "name": "frontend",
   "version": "0.0.1",
   "description": "学习react",
-  "main": "app.js",
+  "main": "",
   "scripts": {
     "test": "npm test",
     "dev": "webpack-dev-server ",
-    "build-lib": "webpack --config ddl.config.js",
+    "build-lib": "webpack --config dll.config.js",
     "build": "webpack -w"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Zertu/reactdemo.git"
+    "url": "git+https://github.com/Zertu/Zpan.git"
   },
   "keywords": [
     "react",
@@ -20,9 +20,9 @@
   "author": "Zertu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Zertu/reactdemo/issues"
+    "url": "https://github.com/Zertu/Zpan/issues"
   },
-  "homepage": "https://github.com/Zertu/reactdemo#readme",
+  "homepage": "https://github.com/Zertu/Zpan#readme",
   "devDependencies": {
     "babel-core": "^6.22.1",
     "babel-eslint": "^6.1.2",
@@ -43,6 +43,7 @@
     "react-dom": "^15.4.2",
     "react-hot-loader": "^1.3.1",
     "react-router-dom": "^4.0.0",
+    "rxjs-es": "^5.0.0-beta.12",
     "sass-loader": "^6.0.1",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.1",
