@@ -20,11 +20,15 @@
             "error",
             "single"
         ],
+        "require-await":"warn",
+        "require-yield":"off",
         "no-console": "warn",
         "semi": [
             "error",
             "never"
         ]
-    }
-
+    },
+    "plugins": [
+        "react"
+    ]
 }

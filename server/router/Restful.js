@@ -9,7 +9,8 @@ const Get =require('./Methods/Get')
  * @returns {Object} Response 返回处理后的Response
  */
 async function router(method,ctx,next){
-    let res,req=ctx.requset
+    let res,req=ctx.request
+    console.log(ctx.method)
     switch (method){
         case 'GET':
         res= GetRes(await Get(ctx))
@@ -23,11 +24,14 @@ async function router(method,ctx,next){
         break
         case 'HEAD':
         break
+        case 'OPTIONS':
+        return ctx.status = 200
         default:
         ctx.response.status=404
         ctx.body='not found'
         break
     }
+    console.log(res)
     return res
 }
 

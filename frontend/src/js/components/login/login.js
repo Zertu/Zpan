@@ -22,7 +22,7 @@ class Login extends Component {
         this.setState({pwd: e.target.value})
     }
     login = e => {
-        isLogin.signin(()=>{
+        isLogin.signin(this.state.user,this.state.pwd,()=>{
         this.setState({isloged:true})
         })
     }

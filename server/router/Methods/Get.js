@@ -1,4 +1,8 @@
-exports= module.exports = async function (ctx) {
-    console.log(ctx.request)
+exports = module.exports = async function (ctx) {
+    const req = ctx.request
+    switch (req.url) {
+        default:
+        break
+    }
     return ctx.response
 }

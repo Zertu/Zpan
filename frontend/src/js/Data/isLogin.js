@@ -1,8 +1,16 @@
-import Rx from 'rxjs-es'
+import ajax from '../Fetch'
 
 const isLogin = {
   islogin: false,
-  signin(cb) {
+  async signin(user, pwd, cb) {
+    let res = await ajax('http://localhost:3001/login', {
+      method: 'POST',
+      body: {
+        user: user,
+        pwd: pwd
+      }
+    })
+    console.log(res)
     this.islogin = true
     setTimeout(cb, 100) // fake async
   },
