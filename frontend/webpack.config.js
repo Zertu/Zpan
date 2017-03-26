@@ -38,18 +38,18 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader?modules']
-            },
-            {
-                test:/\.scss/,
-                use:[{
-                loader: 'style-loader'
             }, {
-                loader: 'css-loader'
-            }, {
-                loader: 'sass-loader'
-            }                  
+                test: /\.scss/,
+                use: [
+                    {
+                        loader: 'style-loader'
+                    }, {
+                        loader: 'css-loader'
+                    }, {
+                        loader: 'sass-loader'
+                    }
                 ]
-            } ,{
+            }, {
                 test: /\.js|jsx$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
@@ -64,7 +64,6 @@ module.exports = {
         new webpack.DllReferencePlugin({context: __dirname, manifest: require('./manifest.json')}),
         new webpack.HotModuleReplacementPlugin(),
         // enable HMR globally
-
         new webpack.NamedModulesPlugin(),
 
         // 打开浏览器地址
