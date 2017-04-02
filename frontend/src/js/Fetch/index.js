@@ -1,14 +1,14 @@
 import 'whatwg-fetch'
 
 /**
- * 
- * 
- * @param {String} url 
- * @param {Object} option 
+ *
+ *
+ * @param {String} url
+ * @param {Object} option
  * @returns {Object}
  */
-async function ajax (url,option) {
-    if(typeof url !== 'string'){
+async function ajax(url, option) {
+    if (typeof url !== 'string') {
         return
     }
     let config = {
@@ -18,17 +18,38 @@ async function ajax (url,option) {
         },
         body: {}
     }
-    Object.keys(config).map(key=>{
-        if(config[key]){
-            if(Object.prototype.toString.call(option[key])==='[object Object]'){
-                JSON.stringify(option[key])
+    Object
+        .keys(config)
+        .map(key => {
+            if (config[key]) {
+                if (Object.prototype.toString.call(option[key]) === '[object Object]') {
+                    JSON.stringify(option[key])
+                }
+                config[key] = option[key]
             }
-            config[key]=option[key]
-        }
-    })
-    console.log(config)
-    return await fetch(url, config)
-}
+        })
 
+    function checkStatus(response) {
+        if (response.status >= 200 && response.status < 300) {
+            return response
+        } else {
+            var error = new Error(response.statusText)
+            error.response = response
+            throw error
+        }
+    }
+
+    function parseJSON(response) {
+        return response.json()
+    }
+
+    return new Promise((resolve, reject) => {
+        fetch(url, config)
+            .then(checkStatus)
+            .then(parseJSON)
+            .then(data => resolve(data))
+            .catch(e => reject(e))
+    })
+}
 
 export default ajax
