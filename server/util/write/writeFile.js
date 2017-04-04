@@ -1,9 +1,10 @@
 const fs = require('fs')
-module.exports = function (Filename, option) {
+module.exports = function (Filename,data, option) {
     return new Promise((resolve, reject) => {
         let defaultopintion = {
             encoding: 'utf8',
-            flag: 'r'
+            mode:0o666,
+            flag: 'w'
         }
         if (option) {
             if (typeof(option) === 'string') {
@@ -14,11 +15,11 @@ module.exports = function (Filename, option) {
                 }
             }
         }
-        fs.readFile(Filename, defaultopintion, (err, data) => {
+        fs.writeFile(Filename,data, defaultopintion, err => {
             if (err) {
                 reject(err)
             }
-            resolve(data)
+            resolve()
         })
     })
 }
